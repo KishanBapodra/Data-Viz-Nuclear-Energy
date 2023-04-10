@@ -1,8 +1,8 @@
-const accData = d3.csv("/data/accidents.csv").then(data => data);
-const nrgData = d3.csv("/data/energy-generation.csv").then(data => data)
-const yrlyData = d3.csv("/data/yearly_full_data.csv").then(data => data)
-const cstData = d3.csv("/data/cost-of-electricity.csv").then(data => data)
-const emsnData = d3.csv("/data/Life-cycle-greenhouse-emission.csv").then(data => data)
+const accData = d3.csv("./data/accidents.csv").then(data => data);
+const nrgData = d3.csv("./data/energy-generation.csv").then(data => data)
+const yrlyData = d3.csv("./data/yearly_full_data.csv").then(data => data)
+const cstData = d3.csv("./data/cost-of-electricity.csv").then(data => data)
+const emsnData = d3.csv("./data/life-cycle-greenhouse-emission.csv").then(data => data)
 
 var accidentsData;
 var energyData;
@@ -35,12 +35,7 @@ loadData().then(() => {
         }
         return element
     })
+    
+    economicDmg(accidentsData)
 
-    // fullData.forEach(element => {
-    //     if(element.Category === 'Electricity generation' && element.Variable === 'Nuclear' && element.Year === '2015' && element["Area type"] !== 'Country' ) {
-    //         // future reference    
-    //     }
-    // })
-
-    console.log(emissionData);
 });
