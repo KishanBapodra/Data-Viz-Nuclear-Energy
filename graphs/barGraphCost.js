@@ -92,7 +92,7 @@ function barGraphCost(data) {
   
     barGraphCostSvg.append("text")
     .attr("x", barGraphCostWidth/2)
-    .attr("y", barGraphCostHeight + 90)
+    .attr("y", barGraphCostHeight + 104)
     .attr("text-anchor", "middle")
     .style("font-size", "1.2em")
     .style("fill", "black") 

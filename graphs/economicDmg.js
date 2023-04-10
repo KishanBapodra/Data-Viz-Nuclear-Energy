@@ -41,7 +41,7 @@ function economicDmg(data) {
     .attr("text-anchor", "middle")
     .style("font-size", "1.2em")
     .style("fill", "black") 
-    .text("Economic Damage cause by Nuclear Power Plant Accidents")    
+    .text("Economic Damage caused by Nuclear Power Plant Accidents")    
 
     const mouseOver = (event, d) => {
       bubbleTooltip.style("opacity", 1).style("display", "block");
