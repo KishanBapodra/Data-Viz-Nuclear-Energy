@@ -5,10 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuclear Energy Impact</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css"></link>
     <script src='https://d3js.org/d3.v7.min.js'></script>
-    <script src="/data/data.js"></script>
+    <script src="./data/data.js"></script>
 </head>
 <body>
-    
+    <section class="negative-impact">
+        <div class="left-side">
+            <div id="economic-dmg"></div>
+        </div>
+        <div class="right-side">
+            <div id="fatalities"></div>
+            <div id="cost"></div>
+        </div>
+    </section>
+    <script src="./graphs/economicDmg.js" defer></script>
 </body>
 </html>
