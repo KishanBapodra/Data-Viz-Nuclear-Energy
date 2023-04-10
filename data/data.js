@@ -19,23 +19,25 @@ const loadData = async () => {
     fullData = await yrlyData;
 }
 
-const sources = ['Coal power','Natural gas', 'Wind power', 'Nuclear', 'Biomass','Geothermal power', 'Battery storage', 'Fuel cells', 'Solar PV with storage', 'Solar photovoltaic']
+const sources = ['Coal power','Natural gas', 'Wind power','Biomass', 'Solar thermal/concentrated', 'Nuclear', 'Turbine (industrial)', 'Geothermal power','Fuel cells', 'Solar photovoltaic', 'Battery storage']
 
 loadData().then(() => {
 
     // filter the energy sources
     filteredCostData = costData.filter(data => sources.includes(data.Type))
-    // avg for sources with range of costs
+    // avg for sources with range of costs and change string value with comma to number
     filteredCostData = filteredCostData.map(element => {
+        
+        const dollarRemove = element["US-EIA"].split("$");
         if(element["US-EIA"].includes('-')) {
-            const dollarRemove = element["US-EIA"].split("$");
             const vals = dollarRemove[1].split("-");
             const avg = (parseFloat(vals[0].replace(/[^0-9.-]+/g,"")) + parseFloat(vals[1].replace(/[^0-9.-]+/g,""))) / 2;
-            return {...element, "US-EIA": `$${avg.toString()}`}
+            return {...element, "US-EIA": avg}
         }
-        return element
+        return {...element, "US-EIA": parseFloat(element["US-EIA"].replace(/[^0-9.-]+/g,""))}
     })
     
-    economicDmg(accidentsData)
-
+    barGraphAccidents(accidentsData);
+    economicDmg(accidentsData);
+    barGraphCost(filteredCostData);
 });
