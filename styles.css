@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+}
+.negative-impact {
+    height: 100vh;
+    width: 100vw;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex {
+    height: 60%;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.left-side {
+    border-right: 2px solid black;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.right-side {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#economic-dmg {
+    height: 100%;
+    width: 80%;
+}
