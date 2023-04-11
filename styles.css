@@ -19,7 +19,6 @@ body {
 }
 
 .left-side {
-    border-right: 2px solid black;
     height: 100%;
     width: 50%;
     display: flex;
@@ -31,10 +30,14 @@ body {
 .title {
     width: 100%;
     margin: 0.3em;
+    opacity: 0;
     font-size: 1.7em;
+    animation: fadeInFromTop 3s ease forwards 2s;
+    transform: translateY(-10px);
 }
 
 .right-side {
+    border-left: 2px solid black;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -47,3 +50,24 @@ body {
     height: 100%;
     width: 80%;
 }
+
+.positive-impact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #D5E1CC;
+}
+
+@keyframes fadeInFromTop {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
