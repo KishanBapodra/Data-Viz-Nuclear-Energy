@@ -41,7 +41,7 @@ function barGraphAccidents(data) {
   .duration(1000)
   .call(d3.axisLeft(y));
 
-  var barGraphAccidentTooltip = d3.select("#fatalities")
+  const barGraphAccidentTooltip = d3.select("#fatalities")
   .append("div")
   .style("opacity", 0)
   .attr("class", "tooltip")
