@@ -32,8 +32,8 @@ body {
     margin: 0.3em;
     opacity: 0;
     font-size: 1.7em;
-    animation: fadeInFromTop 3s ease forwards 2s;
-    transform: translateY(-10px);
+    animation: fadeInFromTop 2s ease forwards 2s;
+    transform: translateY(-15px);
 }
 
 .right-side {
@@ -42,7 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 #economic-dmg {
@@ -53,17 +53,24 @@ body {
 
 .positive-impact {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     height: 100vh;
     width: 100vw;
     background-color: #D5E1CC;
 }
 
+.description {
+    width: 20%;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.5;
+}
+
 @keyframes fadeInFromTop {
     from {
       opacity: 0;
-      transform: translateY(-10px);
+      transform: translateY(-15px);
     }
     to {
       opacity: 1;
@@ -71,3 +78,49 @@ body {
     }
   }
   
+#comparison {
+    border: 1px solid #C1C1C1;
+}
+
+#emission {
+    border: 1px solid #861010;
+}
+
+.chart {
+    margin: auto;
+    max-width: 600px;
+}
+.axis--x path {
+    display: none;
+}
+.violin {
+    fill: steelblue;
+    opacity: 0.7;
+}
+.box {
+    fill: white;
+    stroke: black;
+    stroke-width: 1.5px;
+}
+.median {
+    stroke-width: 2px;
+    stroke: #ff7f0e;
+}
+
+.section-2 {
+    background-color: brown;
+}
+
+.emission-graph {
+    margin: 2em;
+}
+
+.emission-analysis {
+    width: 74%;
+    text-align: justify;
+    line-height: 1.4;
+}
+
+.section-3 {
+    width: 50%;
+}

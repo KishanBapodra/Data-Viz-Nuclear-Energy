@@ -55,7 +55,7 @@ function barGraphCost(data) {
   
     const mouseMove = (event, d) => {
       barGraphCostTooltip
-          .html('<u>' + d.Type + '</u>' + "<br>" + "Cost: " + d["US-EIA"])
+          .html('<u>' + d.Type + '</u>' + "<br>" + "Cost: $" + d["US-EIA"] + " per kW")
           .style("position", "fixed")
           .style("width","17em")
           .style("left", (event.x + 15) + "px")

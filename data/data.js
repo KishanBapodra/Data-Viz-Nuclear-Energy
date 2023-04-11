@@ -24,6 +24,7 @@ const loadData = async () => {
 
 const sources = ['Coal power','Natural gas', 'Wind power','Biomass', 'Solar thermal/concentrated', 'Nuclear', 'Turbine (industrial)', 'Geothermal power','Fuel cells', 'Solar photovoltaic', 'Battery storage']
 const filterLCOECosts = ["PV (residential)","PV (utility, fixed-axis)","PV (utility, tracking)"]
+
 loadData().then(() => {
 
     // filter the energy sources
@@ -55,4 +56,5 @@ loadData().then(() => {
     economicDmg(accidentsData);
     barGraphCost(filteredCostData);
     barGraphCostComparison(compareCostData);
+    lollipopChart(emissionData);
 });

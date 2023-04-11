@@ -2,13 +2,13 @@
 function barGraphCostComparison(data) {
 
   // set the dimensions and margins of the graph
-  const CompMargin = {top: 10, right: 190, bottom: 80, left: 50},
-    CompWidth = 1400 - CompMargin.left - CompMargin.right,
+  const CompMargin = {top: 90, right: 210, bottom: 40, left: 50},
+    CompWidth = 1200 - CompMargin.left - CompMargin.right,
     CompHeight = 600 - CompMargin.top - CompMargin.bottom;
   
-  data.forEach(d => {
-    delete d["Lazard 2021"]
-  });
+  // data.forEach(d => {
+  //   delete d["Lazard 2021"]
+  // });
 
   // append the svg object to the body of the page
   const GroupedSvg = d3.select("#comparison")
@@ -31,9 +31,11 @@ function barGraphCostComparison(data) {
       .range([0, CompWidth])
       .padding([0.3])
   GroupedSvg.append("g")
-    .style("font-size", "1em")
+    .style("font-size", "0.9em")
     .attr("transform", `translate(0, ${CompHeight})`)
-    .call(d3.axisBottom(x).tickSize(0));
+    .call(d3.axisBottom(x).tickSize(0))
+    .selectAll("text")
+    .attr("dy", "1.3em");
     
   // Add Y axis
   const y = d3.scaleLinear()
@@ -53,7 +55,7 @@ function barGraphCostComparison(data) {
     .domain(subgroups)
     .range(d3.schemeCategory10)
 
-    var barGraphGroupedTooltip = d3.select("#fatalities")
+  const barGraphGroupedTooltip = d3.select("#comparison")
     .append("div")
     .style("opacity", 0)
     .attr("class", "tooltip")
@@ -68,7 +70,6 @@ function barGraphCostComparison(data) {
     };
   
     const mouseMove = (event, d) => {
-      console.log(d);
       barGraphGroupedTooltip
           .html('<u>' + d.key + '</u>' + "<br>" + "Levelized Cost of energy (LCOE): " + parseInt(d.value) + " US$ per MWh")
           .style("position", "fixed")
@@ -92,18 +93,23 @@ function barGraphCostComparison(data) {
     .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
     .join("rect")
       .attr("x", d => xSubgroup(d.key))
-      .attr("y", d => y(d.value))
       .attr("width", xSubgroup.bandwidth())
-      .attr("height", d => CompHeight - y(d.value))
-      .attr("fill", d => color(d.key))      
+      .attr("y", d=> y(0))
+      .attr("height", d => CompHeight - y(0))
     .on("mouseover", mouseOver) 
     .on("mousemove", mouseMove)
-    .on("mouseleave", mouseLeave);
+    .on("mouseleave", mouseLeave)
+      .transition()
+      .duration(3000)
+      .delay(2500)
+      .attr("y", d => y(d.value))
+      .attr("height", d => CompHeight - y(d.value))
+      .attr("fill", d => color(d.key));
 
   GroupedSvg.append('text')
-    .attr("x", CompWidth/2)
-    .attr("y", CompHeight+67)
-    .attr("text-anchor", "middle")
+    .attr("x", 0)
+    .attr("y", -45)
+    .attr("text-anchor", "start")
     .style("font-size", "1.2em")
     .style("fill", "black") 
     .text( "Levelized Cost of Energy by different sources (measured in US$ per MWh)");
@@ -118,7 +124,7 @@ function barGraphCostComparison(data) {
   // Add legend
   const legend = GroupedSvg.append("g")
     .attr("class", "legend")
-    .attr("transform", `translate(${CompWidth},0)`);
+    .attr("transform", `translate(${CompWidth},10)`);
   
   legend.selectAll("rect")
     .data(legendItems)

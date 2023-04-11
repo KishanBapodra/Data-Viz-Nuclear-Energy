@@ -49,8 +49,9 @@ function economicDmg(data) {
 
     const mouseMove = (event, d) => {
       bubbleTooltip
-          .html('<u>' + d.Location + '</u>' + "<br>" + "Economic Cost (in millions): " + parseInt(d.Cost))
+          .html('<u>' + d.Location + '</u>' + "<br>" + "Economic Cost (in millions): " + parseInt(d.Cost)  + "<br>" + "Description: " + d.Description)
           .style("position", "fixed")
+          .style("width","17em")
           .style("background-color", "lightskyblue")
           .style("left", (event.x + 15) + "px")
           .style("top", (event.y - (scrollY/5)) + "px");
