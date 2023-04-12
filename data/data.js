@@ -52,13 +52,14 @@ loadData().then(() => {
                                     return data
                                 })
 
-    energyData = energyData.filter(data => continents.includes(data.Entity) && data.Year === '2021')
-    
+    filteredEnergyData = energyData.filter(data => continents.includes(data.Entity) && data.Year === '2021')
+    energyData = energyData.filter(data => continents.includes(data.Entity))
     
     barGraphAccidents(accidentsData);
     economicDmg(accidentsData);
     barGraphCost(filteredCostData);
     barGraphCostComparison(compareCostData);
     lollipopChart(emissionData);
-    map(energyData);
+    map(filteredEnergyData);
+    update(energyData.filter(d => d.Entity === 'Europe'));
 });

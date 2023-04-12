@@ -124,3 +124,7 @@ body {
 .section-3 {
     width: 50%;
 }
+
+#line {
+    border: 1px solid #C1C1C1;
+}
