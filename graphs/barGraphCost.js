@@ -3,7 +3,7 @@ function barGraphCost(data) {
 
     // set the dimensions and margins of the graph
     const barGraphCostMargin = {top: 30, right: 30, bottom: 110, left: 60};
-    const barGraphCostWidth = 560 - barGraphCostMargin.left - barGraphCostMargin.right;
+    const barGraphCostWidth = 760 - barGraphCostMargin.left - barGraphCostMargin.right;
     const barGraphCostHeight = 360 - barGraphCostMargin.top - barGraphCostMargin.bottom;
       
     // append the svg object to the body of the page

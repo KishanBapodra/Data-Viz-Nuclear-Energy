@@ -3,7 +3,7 @@ function barGraphDeaths(data) {
     
     console.log(data["Deaths per TWh of electricity production"]);   
     // set the dimensions and margins of the graph
-    const deathMargin = {top: 20, right: 30, bottom: 40, left: 110},
+    const deathMargin = {top: 20, right: 30, bottom: 50, left: 110},
     deathWidth = 660 - deathMargin.left - deathMargin.right,
     deathHeight = 600 - deathMargin.top - deathMargin.bottom;
 

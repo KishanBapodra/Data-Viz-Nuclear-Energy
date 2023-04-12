@@ -2,8 +2,8 @@
 function barGraphAccidents(data) {
 
   // set the dimensions and margins of the graph
-  const barGraphAccidentMargin = {top: 30, right: 30, bottom: 110, left: 60};
-  const barGraphAccidentWidth = 460 - barGraphAccidentMargin.left - barGraphAccidentMargin.right;
+  const barGraphAccidentMargin = {top: 30, right: 60, bottom: 95, left: 60};
+  const barGraphAccidentWidth = 520 - barGraphAccidentMargin.left - barGraphAccidentMargin.right;
   const barGraphAccidentHeight = 450 - barGraphAccidentMargin.top - barGraphAccidentMargin.bottom;
 
   data = data.filter(d => d.Fatalities > 10).map(d => {return {...d, "Location": d.Location.split(", ")[1]}})

@@ -97,6 +97,15 @@ body {
     fill: steelblue;
     opacity: 0.7;
 }
+
+#fatalities {
+   margin-bottom: 2em;
+}
+
+#cost {
+    border: 1px solid #861010 ;
+}
+
 .box {
     fill: white;
     stroke: black;
