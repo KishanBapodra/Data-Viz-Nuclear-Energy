@@ -2,6 +2,7 @@ const accData = d3.csv("./data/accidents.csv").then(data => data);
 const nrgData = d3.csv("./data/energy-generation.csv").then(data => data)
 const yrlyData = d3.csv("./data/yearly_full_data.csv").then(data => data)
 const cstData = d3.csv("./data/cost-of-electricity.csv").then(data => data)
+const dthData = d3.csv("./data/death-rates-from-energy-production-per-twh.csv").then(data => data)
 const emsnData = d3.csv("./data/life-cycle-greenhouse-emission.csv").then(data => data)
 const costCompData = d3.csv("./data/cost-of-electricity-compare.csv").then(data => data)
 
@@ -10,6 +11,7 @@ var energyData;
 var costData;
 var emissionData;
 var fullData;
+var deathData;
 var filteredCostData;
 var compareCostData;
 
@@ -18,6 +20,7 @@ const loadData = async () => {
     energyData = await nrgData;
     costData = await cstData;
     emissionData = await emsnData;
+    deathData = await dthData;
     compareCostData = await costCompData;
     fullData = await yrlyData;
 }
@@ -60,6 +63,7 @@ loadData().then(() => {
     barGraphCost(filteredCostData);
     barGraphCostComparison(compareCostData);
     lollipopChart(emissionData);
+    barGraphDeaths(deathData);
     map(filteredEnergyData);
     update(energyData.filter(d => d.Entity === 'Europe'));
 });

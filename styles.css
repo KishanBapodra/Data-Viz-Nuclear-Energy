@@ -128,3 +128,7 @@ body {
 #line {
     border: 1px solid #C1C1C1;
 }
+
+#deathBarGraph {
+    border: 1px solid #861010 ;
+}
