@@ -48,9 +48,17 @@ function barGraphCost(data) {
     .style("border-width", "1px")
     .style("border-radius", "5px")
     .style("padding", "10px")
-  
+
     const mouseOver = (event, d) => {
       barGraphCostTooltip.style("opacity", 1).style("display", "block");
+      d3.selectAll(".costs")
+        .transition()
+        .duration(400)
+        .style("opacity", .5);
+        d3.selectAll(`.${d.Type.replace(' ','-')}`)        
+        .transition()
+        .duration(400)
+        .style("opacity", 1)
     };
   
     const mouseMove = (event, d) => {
@@ -65,12 +73,20 @@ function barGraphCost(data) {
   
     const mouseLeave = (event, d) => {
       barGraphCostTooltip.style("opacity", 0).style("display", "none");
+      d3.selectAll(".costs")
+        .transition()
+        .duration(400)
+        .style("opacity", 1);
     }
   
     // Bars
     barGraphCostSvg.selectAll("mybar")
     .data(data)
     .join("rect")
+      .attr("class",d => {
+        let typ = d.Type.replace(" ","-")
+        return `costs ${typ}`
+      })
       .attr("x", d => x(d.Type))
       .attr("width", x.bandwidth())
       .attr("fill", "#d2691e")

@@ -45,6 +45,15 @@ function economicDmg(data) {
 
     const mouseOver = (event, d) => {
       bubbleTooltip.style("opacity", 1).style("display", "block");
+      d3.selectAll(".Country")
+        .transition()
+        .duration(100)
+        .style("opacity", .25);
+        d3.selectAll(`.${d.Location.split(", ")[1]}`)        
+        .transition()
+        .duration(100)
+        .style("opacity", 1)
+        .style("stroke", "black")
     };
 
     const mouseMove = (event, d) => {
@@ -59,6 +68,10 @@ function economicDmg(data) {
 
     const mouseLeave = (event, d) => {
       bubbleTooltip.style("opacity", 0).style("display", "none");
+      d3.selectAll(".Country")
+        .transition()
+        .duration(100)
+        .style("opacity", 1);
     }
 
     // create color scale
@@ -70,6 +83,7 @@ function economicDmg(data) {
         .selectAll("circle")
         .data(data)
         .join("circle")
+          .attr("class", d => `Country ${d.Location.split(", ")[1]}`)
             .attr("r", d => x(d.Cost))
             .attr("cx", bubbleWidth / 2)
             .attr("cy", bubbleHeight / 2)

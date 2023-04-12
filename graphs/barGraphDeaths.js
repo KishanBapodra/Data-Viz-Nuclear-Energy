@@ -1,7 +1,6 @@
 
 function barGraphDeaths(data) {
     
-    console.log(data["Deaths per TWh of electricity production"]);   
     // set the dimensions and margins of the graph
     const deathMargin = {top: 20, right: 30, bottom: 50, left: 110},
     deathWidth = 660 - deathMargin.left - deathMargin.right,
@@ -48,6 +47,14 @@ function barGraphDeaths(data) {
   
     const mouseOver = (event, d) => {
       barGraphDeathTooltip.style("opacity", 1).style("display", "block");
+      d3.selectAll(".deaths")
+        .transition()
+        .duration(400)
+        .style("opacity", .5);
+        d3.selectAll(`.${d.Entity.replace(' ','-')}`)        
+        .transition()
+        .duration(400)
+        .style("opacity", 1)
     };
   
     const mouseMove = (event, d) => {
@@ -62,12 +69,20 @@ function barGraphDeaths(data) {
   
     const mouseLeave = (event, d) => {
       barGraphDeathTooltip.style("opacity", 0).style("display", "none");
+      d3.selectAll(".deaths")
+        .transition()
+        .duration(400)
+        .style("opacity", 1);
     }
   
     //Bars
     deathSvg.selectAll("myRect")
     .data(data)
     .join("rect")
+    .attr("class",d => {
+      let ent = d.Entity.replace(" ","-")
+      return `deaths ${ent}`
+    })
     .attr("x", x(0) )
     .attr("y", d => y(d.Entity))
     .attr("width", d => x(d["Deaths per TWh of electricity production"]))

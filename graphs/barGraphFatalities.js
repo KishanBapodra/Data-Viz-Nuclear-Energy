@@ -73,6 +73,10 @@ function barGraphAccidents(data) {
   barGraphAccidentSvg.selectAll("mybar")
   .data(data)
   .join("rect")
+    .attr("class", d => {
+      let loc = d.Location.replace(" ","-")
+      return `accident ${loc}`
+    })
     .attr("x", d => x(d.Location))
     .attr("width", x.bandwidth())
     .attr("fill", "#d2691e")
