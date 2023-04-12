@@ -45,10 +45,10 @@ function economicDmg(data) {
 
     const mouseOver = (event, d) => {
       bubbleTooltip.style("opacity", 1).style("display", "block");
-      d3.selectAll(".Country")
+      d3.selectAll(".accident")
         .transition()
         .duration(100)
-        .style("opacity", .25);
+        .style("opacity", .35);
         d3.selectAll(`.${d.Location.split(", ")[1]}`)        
         .transition()
         .duration(100)
@@ -68,7 +68,7 @@ function economicDmg(data) {
 
     const mouseLeave = (event, d) => {
       bubbleTooltip.style("opacity", 0).style("display", "none");
-      d3.selectAll(".Country")
+      d3.selectAll(".accident")
         .transition()
         .duration(100)
         .style("opacity", 1);
@@ -83,7 +83,7 @@ function economicDmg(data) {
         .selectAll("circle")
         .data(data)
         .join("circle")
-          .attr("class", d => `Country ${d.Location.split(", ")[1]}`)
+          .attr("class", d => `accident ${d.Location.split(", ")[1]}`)
             .attr("r", d => x(d.Cost))
             .attr("cx", bubbleWidth / 2)
             .attr("cy", bubbleHeight / 2)
