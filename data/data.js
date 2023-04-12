@@ -24,6 +24,7 @@ const loadData = async () => {
 
 const sources = ['Coal power','Natural gas', 'Wind power','Biomass', 'Solar thermal/concentrated', 'Nuclear', 'Turbine (industrial)', 'Geothermal power','Fuel cells', 'Solar photovoltaic', 'Battery storage']
 const filterLCOECosts = ["PV (residential)","PV (utility, fixed-axis)","PV (utility, tracking)"]
+const continents = ["North America", "South America", "Europe", "Africa", "Asia", "Oceania"]
 
 loadData().then(() => {
 
@@ -46,15 +47,18 @@ loadData().then(() => {
                                     if(data["Lazard 2021"].includes('-')) {
                                         const val = data["Lazard 2021"].split('-')
                                         const average = (parseInt(val[0]) + parseInt(val[1]))/2
-                                        console.log(val[0] + " " + val[1] + "  " + average);
                                         return {...data, "Lazard 2021": average}
                                     }
                                     return data
                                 })
+
+    energyData = energyData.filter(data => continents.includes(data.Entity) && data.Year === '2021')
+    
     
     barGraphAccidents(accidentsData);
     economicDmg(accidentsData);
     barGraphCost(filteredCostData);
     barGraphCostComparison(compareCostData);
     lollipopChart(emissionData);
+    map(energyData);
 });

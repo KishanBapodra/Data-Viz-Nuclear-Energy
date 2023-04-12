@@ -68,7 +68,6 @@ function lollipopChart(data) {
     };
     
     const mouseMove = (event, d) => {
-        console.log(d);
         lollipopTooltip
             .html('<u>' + d.Technology + '</u>' + '<br>' + "Median: " + d.Median + " grams of CO2 equivalent/kWh" + '<br>' + "Min: " + d["Min."] + " grams of CO2 equivalent/kWh" + "<br>" + "Max: " + d["Max."] + " grams of CO2 equivalent/kWh")
             .style("position", "fixed")
