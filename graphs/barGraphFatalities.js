@@ -53,7 +53,7 @@ function barGraphAccidents(data) {
 
   const mouseOver = (event, d) => {
     barGraphAccidentTooltip.style("opacity", 1).style("display", "block");
-    console.log(d);
+
     d3.selectAll(".accident")
         .transition()
         .duration(200)

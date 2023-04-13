@@ -1,14 +1,14 @@
 
 function barGraphCostComparison(data) {
-
   // set the dimensions and margins of the graph
   const CompMargin = {top: 90, right: 210, bottom: 40, left: 50},
-    CompWidth = 1200 - CompMargin.left - CompMargin.right,
-    CompHeight = 600 - CompMargin.top - CompMargin.bottom;
-  
-  // data.forEach(d => {
-  //   delete d["Lazard 2021"]
-  // });
+  CompWidth = 1200 - CompMargin.left - CompMargin.right,
+  CompHeight = 600 - CompMargin.top - CompMargin.bottom;
+      
+  const filteredData = data.map(obj => {
+    const {"Lazard 2021": ageRange, ...rest} = obj;
+    return rest;
+  });
 
   // append the svg object to the body of the page
   const GroupedSvg = d3.select("#comparison")
@@ -19,11 +19,10 @@ function barGraphCostComparison(data) {
     .attr("transform",`translate(${CompMargin.left},${CompMargin.top})`);
 
   // List of subgroups = header of the csv files = soil condition here
-
-  const subgroups = Object.keys(data[0]).slice(1)
+  const subgroups = Object.keys(filteredData[0]).slice(1)
 
   // List of groups = species here = value of the first column called group -> I show them on the X axis
-  const groups = data.map(d => d.Type)
+  const groups = filteredData.map(d => d.Type)
 
   // Add X axis
   const x = d3.scaleBand()
@@ -86,7 +85,7 @@ function barGraphCostComparison(data) {
   // Show the bars
   const bars = GroupedSvg.append("g")
     .selectAll("g")
-    .data(data)
+    .data(filteredData)
     .join("g")
       .attr("transform", d => `translate(${x(d.Type)}, 0)`)
     .selectAll("rect")

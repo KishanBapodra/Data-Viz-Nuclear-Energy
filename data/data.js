@@ -57,10 +57,10 @@ loadData().then(() => {
 
     filteredEnergyData = energyData.filter(data => continents.includes(data.Entity) && data.Year === '2021')
     energyData = energyData.filter(data => continents.includes(data.Entity))
-    
+
     barGraphAccidents(accidentsData);
     economicDmg(accidentsData);
-    barGraphCost(filteredCostData);
+    barGraphCost(compareCostData);
     barGraphCostComparison(compareCostData);
     lollipopChart(emissionData);
     barGraphDeaths(deathData);
