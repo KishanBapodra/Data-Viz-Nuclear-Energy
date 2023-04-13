@@ -101,6 +101,6 @@ function barGraphCost(data) {
     .attr("text-anchor", "middle")
     .style("font-size", "1.2em")
     .style("fill", "black") 
-    .text("Cost of producing electricity by different fuel types"); 
+    .text("Cost of producing electricity by different fuel types. US$ per MWh (Lazard 2021)"); 
   }
     

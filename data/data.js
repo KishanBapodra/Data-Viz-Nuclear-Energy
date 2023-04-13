@@ -59,8 +59,8 @@ loadData().then(() => {
     energyData = energyData.filter(data => continents.includes(data.Entity))
 
     barGraphAccidents(accidentsData);
-    economicDmg(accidentsData);
     barGraphCost(compareCostData);
+    economicDmg(accidentsData);
     barGraphCostComparison(compareCostData);
     lollipopChart(emissionData);
     barGraphDeaths(deathData);

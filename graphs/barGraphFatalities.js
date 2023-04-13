@@ -92,10 +92,10 @@ function barGraphAccidents(data) {
   // Animation
   barGraphAccidentSvg.selectAll("rect")
   .transition()
-  .duration(800)
+  .duration(400)
   .attr("y", d => y(parseInt(d.Fatalities)))
   .attr("height", d => barGraphAccidentHeight - y(parseInt(d.Fatalities)))
-  .delay((d,i) => {return i*400})
+  .delay((d,i) => {return i*250})
 
   barGraphAccidentSvg.append("text")
   .attr("x", barGraphAccidentWidth/2)
