@@ -37,7 +37,7 @@ function economicDmg(data) {
 
     bubbleSvg.append("text")
     .attr("x", bubbleWidth/2)
-    .attr("y", bubbleSvgHeight-55)
+    .attr("y", bubbleSvgHeight-30)
     .attr("text-anchor", "middle")
     .style("font-size", "1.2em")
     .style("fill", "black") 

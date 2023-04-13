@@ -1,10 +1,10 @@
-const accData = d3.csv("./data/accidents.csv").then(data => data);
-const nrgData = d3.csv("./data/energy-generation.csv").then(data => data)
-const yrlyData = d3.csv("./data/yearly_full_data.csv").then(data => data)
-const cstData = d3.csv("./data/cost-of-electricity.csv").then(data => data)
-const dthData = d3.csv("./data/death-rates-from-energy-production-per-twh.csv").then(data => data)
-const emsnData = d3.csv("./data/life-cycle-greenhouse-emission.csv").then(data => data)
-const costCompData = d3.csv("./data/cost-of-electricity-compare.csv").then(data => data)
+const accData = d3.csv("https://raw.githubusercontent.com/KishanBapodra/Data-for-fetch/main/data/accidents.csv").then(data => data);
+const nrgData = d3.csv("https://raw.githubusercontent.com/KishanBapodra/Data-for-fetch/main/data/energy-generation.csv").then(data => data)
+const yrlyData = d3.csv("https://raw.githubusercontent.com/KishanBapodra/Data-for-fetch/main/data/yearly_full_data.csv").then(data => data)
+const cstData = d3.csv("https://raw.githubusercontent.com/KishanBapodra/Data-for-fetch/main/data/cost-of-electricity.csv").then(data => data)
+const dthData = d3.csv("https://raw.githubusercontent.com/KishanBapodra/Data-for-fetch/main/data/death-rates-from-energy-production-per-twh.csv").then(data => data)
+const emsnData = d3.csv("https://raw.githubusercontent.com/KishanBapodra/Data-for-fetch/main/data/life-cycle-greenhouse-emission.csv").then(data => data)
+const costCompData = d3.csv("https://raw.githubusercontent.com/KishanBapodra/Data-for-fetch/main/data/cost-of-electricity-compare.csv").then(data => data)
 
 var accidentsData;
 var energyData;
