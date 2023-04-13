@@ -54,14 +54,6 @@ function barGraphAccidents(data) {
   const mouseOver = (event, d) => {
     barGraphAccidentTooltip.style("opacity", 1).style("display", "block");
 
-    d3.selectAll(".accident")
-        .transition()
-        .duration(200)
-        .style("opacity", .5);
-        d3.selectAll(`.${d.Location.replace(' ','-')}`)        
-        .transition()
-        .duration(400)
-        .style("opacity", 1)
   };
 
   const mouseMove = (event, d) => {
@@ -76,10 +68,6 @@ function barGraphAccidents(data) {
 
   const mouseLeave = (event, d) => {
     barGraphAccidentTooltip.style("opacity", 0).style("display", "none");
-    d3.selectAll(".accident")
-        .transition()
-        .duration(400)
-        .style("opacity", 1);
   }
 
   // Bars
